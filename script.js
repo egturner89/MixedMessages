@@ -10,7 +10,6 @@ const leagues = ['the Premier League', 'La Liga', 'Serie A', 'the Bundesliga', '
 let permutations = [];
 
 // Loop over all possible combinations of position, nation, and league using nested loop:
-
 for (let x = 0; x < positions.length; x++) {
   for (let y = 0; y < nations.length; y++) {
     for (let z = 0; z < leagues.length; z++) {
@@ -20,6 +19,12 @@ for (let x = 0; x < positions.length; x++) {
   }
 };
 
-console.log(permutations);
+// Create function to log to the console a random selection from the permutations array
+let logPermutation = () => {
+  let randomPermutation = generateRandomNumber(permutations.length);
+  console.log(permutations[randomPermutation]);
+};
 
+// Invoke function declared above
+logPermutation();
  
