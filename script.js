@@ -7,15 +7,19 @@ const positions = ['goalkeeper', 'defender', 'midfielder', 'forward'];
 const nations = ['Argentina', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Portugal', 'Spain'];
 const leagues = ['the Premier League', 'La Liga', 'Serie A', 'the Bundesliga', 'Ligue 1', 'the Eredivisie'];
 
-// Generate a random index for each array
-let selectPosition = positions[generateRandomNumber(positions.length)];
-let selectNation = nations[generateRandomNumber(nations.length)];
-let selectLeague = leagues[generateRandomNumber(leagues.length)];
+let permutations = [];
 
-// Define the message function using template literals
-let message = () => {
-  return `You are a ${selectPosition}, from ${selectNation}, playing in ${selectLeague}.`;
+// Loop over all possible combinations of position, nation, and league using nested loop:
+
+for (let x = 0; x < positions.length; x++) {
+  for (let y = 0; y < nations.length; y++) {
+    for (let z = 0; z < leagues.length; z++) {
+      let permutation = `You are a ${positions[x]}, from ${nations[y]}, playing in ${leagues[z]}.`;
+      permutations.push(permutation);
+    }
+  }
 };
 
-// Log the message to the console
-console.log(message());
+console.log(permutations);
+
+ 
